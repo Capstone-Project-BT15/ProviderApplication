@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">jasane_provider</string>
+    <string name="loading">Memuat…</string>
+    <string name="no_internet_connection">Tidak ada koneksi internet!</string>
+    <string name="msg_selamat_datang">Selamat datang di JASANE</string>
+    <string name="lbl_mulai">Mulai</string>
+    <string name="msg_tempat_di_mana">Tempat di mana kebutuhan Anda menjadi prioritas utama. Mulailah menjadi penyedia jasa pekerjaan di platform kami sekarang!</string>
+    <string name="lbl_jasane">JASANE</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="login">Masuk</string>
+    <string name="title_login">Masukkan email dan kata sandi Anda dan nikmati layanannya.</string>
+    <string name="masukkan_email_anda">Masukkan Email Anda</string>
+    <string name="format_email_salah">Format Email Tidak Valid</string>
+    <string name="masukkan_nama_anda">Masukkan Nama Anda</string>
+    <string name="masukkan_password_anda">Masukkan Password Anda</string>
+    <string name="password_kurang_dari_8">Password tidak boleh kurang dari 8 karakter</string>
+    <string name="password">Kata Sandi</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+    <string name="email">Email</string>
+    <string name="name_email">albert@gmail.com</string>
+    <string name="lbl_register">Lengkapi Data Dirimu!</string>
+    <string name="name">Nama</string>
+    <string name="sudah_punya_akun">Sudah Punya Akun?</string>
+    <string name="job_name">Cuci Piring</string>
+    <string name="anggaran">Anggaran</string>
+    <string name="strip">-</string>
+    <string name="biaya_terendah">Rp100.000</string>
+    <string name="biaya_tertinggi">Rp120.000</string>
+    <string name="kerja_lepas">Kerja Lepas</string>
+    <string name="maps">Peta</string>
+    <string name="description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.  through the cites of the word in classical literature, discovered the undoubtable
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.  through the cites of the word in classical literature, discovered the undoubtable </string>
+    <string name="title_description">Deskripsi</string>
+    <string name="ambil_pekerjaan">Ambil Pekerjaan</string>
+    <string name="jarak">7 Kilometer</string>
+    <string name="nomor_handphone">Nomor Handphone</string>
+    <string name="masukkan_no_handphone">Masukkan Nomor Handphone Anda</string>
+    <string name="home">Beranda</string>
+    <string name="pekerjaan">Pekerjaan</string>
+    <string name="penawaran">Penawaran</string>
+    <string name="profile">Profil</string>
+    <string name="konfirmasi_password">Konfirmasi Kata Sandi</string>
+    <string name="name_user">Albert</string>
+    <string name="pending">Tertunda</string>
+    <string name="finish">Selesai</string>
+    <string name="reject">Ditolak</string>
+    <string name="accepted">Diterima</string>
+    <string name="date">11-01-2024</string>
+    <string name="address">Jalan Tanjung Duren Timur III RT.05/RW 02, Tanjung Duren, Kec. Tanah Sereal, Jakarta, Jawa Barat.</string>
+    <string name="lbl_no_handphone">085187833232</string>
+    <string name="rate_offer">Tarif yang ingin anda tawarkan</string>
+    <string name="masukkan_nominalnya">Masukkan Tawaran</string>
+    <string name="txt_description">Pengalaman Anda</string>
+    <string name="lbl_Description">Jelaskan pengalaman</string>
+    <string name="pasang_penawaran">Pasang Penawaran</string>
+    <string name="pin_point">Titik Pin : %s</string>
+    <string name="add">Buat Pekerjaan</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Judul</string>
+    <string name="title_category">Kategori</string>
+</resources>

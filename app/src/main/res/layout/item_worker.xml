@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    card_view:cardCornerRadius="30dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200pxh"
+        android:padding="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100pxh"
+            android:layout_gravity="center_horizontal"
+            card_view:cardCornerRadius="@dimen/_10pxh"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/tv_item_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_job"
+                tools:ignore="ContentDescription,MissingConstraints"
+                tools:src="@drawable/img_job" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/job_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toEndOf="@id/cardViewImage"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            card_view:layout_constraintHorizontal_bias="0.421"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
+            tools:text="@string/job_name" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/baseline_location_on_24"
+            card_view:layout_constraintEnd_toStartOf="@+id/job_distance"
+            card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage" />
+
+        <TextView
+            android:id="@+id/job_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/cardViewImage"
+            android:textSize="@dimen/_8sp"
+            android:textStyle="bold"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
+            tools:text="@string/jarak" />
+
+
+
+        <TextView
+            android:id="@+id/job_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4pxv"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="0dp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toStartOf="@+id/job_distance"
+            card_view:layout_constraintTop_toBottomOf="@+id/job_distance"
+            tools:text="@string/job_name" />
+
+        <TextView
+            android:id="@+id/budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_4pxv"
+            android:textSize="@dimen/_8sp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/job_detail"
+            tools:text="@string/anggaran" />
+
+        <TextView
+            android:id="@+id/lowPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_4pxv"
+            android:text="@string/biaya_terendah"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sp"
+            card_view:layout_constraintHorizontal_bias="0.95"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/budget" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:text="@string/strip"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sp"
+            android:layout_marginStart="@dimen/_4pxv"
+            card_view:layout_constraintStart_toEndOf="@+id/lowPrice"
+            card_view:layout_constraintTop_toBottomOf="@+id/budget"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/highPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4pxv"
+            android:layout_marginTop="@dimen/_4pxv"
+            android:text="@string/biaya_tertinggi"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sp"
+            card_view:layout_constraintStart_toEndOf="@+id/textView6"
+            card_view:layout_constraintTop_toBottomOf="@+id/budget" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

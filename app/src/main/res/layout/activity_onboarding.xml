@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="onboardingVM" type="corp.jasane.provider.modules.onboarding.data.viewmodel.OnboardingVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearOnboarding"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_100">
+        <ImageView android:id="@+id/imageUndrawjoboffe"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_276pxh"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_marginTop="@dimen/_188pxv"
+            android:layout_width="@dimen/_376pxh"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_undrawjoboffe"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_undrawjoboffe"/>
+        <TextView android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:id="@+id/txtTitleOnboarding"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_marginTop="@dimen/_99pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_12pxh"
+            android:singleLine="true"
+            android:text="@{onboardingVM.onboardingModel.txtTitleOnboarding}"
+            style="@style/txtPoppinssemibold24" tools:text="@string/msg_selamat_datang"/>
+        <TextView android:gravity="center_horizontal"
+            android:id="@+id/txtDescription"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_marginTop="@dimen/_8pxv"
+            android:layout_width="match_parent"
+            android:lineSpacingExtra="@dimen/_7pxh"
+            android:text="@{onboardingVM.onboardingModel.txtDescription}"
+            style="@style/txtPoppinsregular14" tools:text="@string/msg_tempat_di_mana"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnMulai"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_50pxv"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_26pxh"
+            android:layout_marginStart="@dimen/_26pxh"
+            android:layout_marginTop="@dimen/_68pxv"
+            android:layout_width="@dimen/_295pxh"
+            android:paddingBottom="@dimen/_13pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_13pxv" android:singleLine="true"
+            android:text="@string/lbl_mulai" android:textAllCaps="false"
+            style="@style/btnSolidRounded" tools:text="@string/lbl_mulai"/>
+    </LinearLayout>
+</layout>

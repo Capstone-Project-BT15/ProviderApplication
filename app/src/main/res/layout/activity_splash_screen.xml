@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="splashScreenVM" type="corp.jasane.provider.modules.splashscreen.data.viewmodel.SplashScreenVM"/>
+    </data>
+    <LinearLayout android:gravity="center_horizontal"
+        android:id="@+id/linearSplashScreen"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_100">
+        <ImageView android:id="@+id/imageGroup"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_148pxh"
+            android:layout_marginEnd="@dimen/_127pxh"
+            android:layout_marginStart="@dimen/_128pxh"
+            android:layout_marginTop="@dimen/_322pxv"
+            android:layout_width="@dimen/_172pxh"
+            android:scaleType="fitXY" android:src="@drawable/img_group"
+            tools:ignore="ContentDescription" tools:src="@drawable/img_group"/>
+        <TextView android:ellipsize="end"
+            android:id="@+id/txtTitleOnboarding"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_128pxh"
+            android:layout_marginStart="@dimen/_128pxh"
+            android:layout_marginTop="@dimen/_17pxv"
+            android:layout_width="wrap_content"
+            android:lineSpacingExtra="@dimen/_20pxh"
+            android:singleLine="true"
+            android:text="@{splashScreenVM.splashScreenModel.txtTitleOnboarding}"
+            style="@style/txtPoppinsbold40" tools:text="@string/lbl_jasane"/>
+    </LinearLayout>
+</layout>
