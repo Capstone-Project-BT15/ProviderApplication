@@ -11,18 +11,16 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="30dp">
+    card_view:cardCornerRadius="@dimen/_20pxh">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_200pxh"
-        android:padding="10dp">
+        android:layout_height="@dimen/_220pxh">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewImage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_100pxh"
-            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_110pxh"
             card_view:cardCornerRadius="@dimen/_10pxh"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -42,10 +40,10 @@
             android:id="@+id/job_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="@dimen/_8pxh"
             android:layout_marginEnd="8dp"
             android:layout_toEndOf="@id/cardViewImage"
-            android:textSize="8sp"
+            android:textSize="@dimen/_10sp"
             android:textStyle="bold"
             card_view:layout_constraintHorizontal_bias="0.421"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -53,8 +51,8 @@
             tools:text="@string/job_name" />
 
         <ImageView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
+            android:layout_width="@dimen/_16pxh"
+            android:layout_height="@dimen/_16pxh"
             android:src="@drawable/baseline_location_on_24"
             card_view:layout_constraintEnd_toStartOf="@+id/job_distance"
             card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage" />
@@ -64,7 +62,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/cardViewImage"
-            android:textSize="@dimen/_8sp"
+            android:layout_marginEnd="@dimen/_8pxh"
+            android:textSize="@dimen/_10sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
@@ -76,7 +75,7 @@
             android:id="@+id/job_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_8pxv"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="0dp"
             android:textStyle="bold"
@@ -88,9 +87,9 @@
             android:id="@+id/budget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_4pxv"
-            android:layout_marginStart="@dimen/_4pxv"
-            android:textSize="@dimen/_8sp"
+            android:layout_marginTop="@dimen/_16pxv"
+            android:layout_marginStart="@dimen/_8pxv"
+            android:textSize="@dimen/_10sp"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/job_detail"
             tools:text="@string/anggaran" />
@@ -100,10 +99,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4pxv"
-            android:layout_marginStart="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_8pxv"
             android:text="@string/biaya_terendah"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             card_view:layout_constraintHorizontal_bias="0.95"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@+id/budget" />
@@ -115,8 +114,8 @@
             android:layout_marginTop="@dimen/_4pxv"
             android:text="@string/strip"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10sp"
-            android:layout_marginStart="@dimen/_4pxv"
+            android:textSize="@dimen/_12sp"
+            android:layout_marginStart="@dimen/_8pxv"
             card_view:layout_constraintStart_toEndOf="@+id/lowPrice"
             card_view:layout_constraintTop_toBottomOf="@+id/budget"
             tools:ignore="MissingConstraints" />
@@ -125,11 +124,11 @@
             android:id="@+id/highPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_4pxv"
+            android:layout_marginStart="@dimen/_8pxv"
             android:layout_marginTop="@dimen/_4pxv"
             android:text="@string/biaya_tertinggi"
             android:textColor="@color/black"
-            android:textSize="@dimen/_10sp"
+            android:textSize="@dimen/_12sp"
             card_view:layout_constraintStart_toEndOf="@+id/textView6"
             card_view:layout_constraintTop_toBottomOf="@+id/budget" />
     </androidx.constraintlayout.widget.ConstraintLayout>

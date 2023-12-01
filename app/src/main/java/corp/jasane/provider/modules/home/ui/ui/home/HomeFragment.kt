@@ -1,5 +1,7 @@
 package corp.jasane.provider.modules.home.ui.ui.home
 
+import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,15 +16,19 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import corp.jasane.provider.databinding.FragmentHomeBinding
 import corp.jasane.provider.databinding.ItemWorkerBinding
+import corp.jasane.provider.modules.ViewModelFactory
+import corp.jasane.provider.modules.login.ui.LoginActivity
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel by viewModels<HomeViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
-    private val adapter = JobAdapter()
+    private lateinit var progressDialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,64 +42,39 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showLoading()
+        viewModel.getSession().observe(viewLifecycleOwner) { user ->
+            if (!user.isLogin) {
+                startActivity(Intent(requireContext(), LoginActivity::class.java))
+                requireActivity().finish()
+            } else {
+//                viewModel.workDetails.observe(viewLifecycleOwner) { workDetails ->
+//                    adapter.setList(ArrayList(workDetails))
+//                }
+                hideLoading()
+            }
+        }
+
         val spanCount = 2
         val layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
         val recyclerView: RecyclerView = binding.recyclerListWorker
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = adapter
 
-        viewModel.jobItemList.observe(viewLifecycleOwner) { jobItems ->
-            adapter.submitList(jobItems)
-        }
+//        viewModel.jobItemList.observe(viewLifecycleOwner) { jobItems ->
+//            adapter.submitList(jobItems)
+//        }
+    }
+
+    private fun showLoading() {
+        progressDialog.show()
+    }
+
+    private fun hideLoading() {
+        progressDialog.dismiss()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-}
-
-data class JobItem(
-    val jobName: String,
-    val jobDistance: String,
-    val jobDetail: String,
-    val budget: String,
-    val lowPrice: String,
-    val highPrice: String
-)
-
-class JobAdapter : ListAdapter<JobItem, JobViewHolder>(JobItemDiffCallback()) {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemWorkerBinding.inflate(inflater, parent, false)
-        return JobViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: JobViewHolder, position: Int) {
-        val jobItem = getItem(position)
-        holder.bind(jobItem)
-    }
-}
-
-class JobViewHolder(private val binding: ItemWorkerBinding) : RecyclerView.ViewHolder(binding.root) {
-    fun bind(jobItem: JobItem) {
-
-        binding.jobName.text = jobItem.jobName
-        binding.jobDistance.text = jobItem.jobDistance
-        binding.jobDetail.text = jobItem.jobDetail
-        binding.budget.text = jobItem.budget
-        binding.lowPrice.text = jobItem.lowPrice
-        binding.highPrice.text = jobItem.highPrice
-    }
-}
-
-class JobItemDiffCallback : DiffUtil.ItemCallback<JobItem>() {
-    override fun areItemsTheSame(oldItem: JobItem, newItem: JobItem): Boolean {
-        return oldItem == newItem
-    }
-
-    override fun areContentsTheSame(oldItem: JobItem, newItem: JobItem): Boolean {
-        return oldItem == newItem
     }
 }

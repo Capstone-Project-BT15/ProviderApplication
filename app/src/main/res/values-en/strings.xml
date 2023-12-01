@@ -20,7 +20,7 @@
     <string name="password_kurang_dari_8">Password must be at least 8 characters</string>
     <string name="password">Password</string>
     <string name="belum_punya_akun">Don\'t have an account yet?</string>
-    <string name="daftar">Register</string>
+    <string name="daftar">Signup</string>
     <string name="email">Email</string>
     <string name="name_email">albert@gmail.com</string>
     <string name="lbl_register">Complete Your Data!</string>
@@ -62,4 +62,15 @@
     <string name="add">Add Work</string>
     <string name="title">Title</string>
     <string name="title_category">Category</string>
+    <string name="minimal">Minimal</string>
+    <string name="maximal">Maximal</string>
+    <string name="lbl_pin_point">PinPoint</string>
+    <string name="upload">Upload</string>
+    <string name="yeah">Yeah!</string>
+    <string name="berhasil_login">You have successfully logged in. Excited to start learning?</string>
+    <string name="gagal_login">Login Failed</string>
+    <string name="gagal_memuat_data">Failed to load data. Please check your internet connection or try again later.</string>
+    <string name="username_password_salah">Incorrect Username or Password</string>
+    <string name="oke">OK</string>
+
 </resources>

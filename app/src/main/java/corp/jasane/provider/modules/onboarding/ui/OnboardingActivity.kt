@@ -1,7 +1,9 @@
 package corp.jasane.provider.modules.onboarding.ui
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.content.ContentProviderCompat.requireContext
@@ -17,18 +19,49 @@ import kotlin.Unit
 class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(R.layout.activity_onboarding) {
   private val viewModel: OnboardingVM by viewModels<OnboardingVM>()
 
+  private lateinit var progressDialog: Dialog
+
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
-    binding.onboardingVM = viewModel
+
+    if (isOnboardingCompleted()) {
+      startActivity(Intent(this, HomeActivity::class.java))
+      finish()
+    } else {
+      binding.onboardingVM = viewModel
+    }
   }
 
   override fun setUpClicks(): Unit {
     binding.btnMulai.setOnClickListener {
-      val intent = Intent(this, LoginActivity::class.java)
-      startActivity(intent)
+      saveOnboardingStatus()
+      startActivity(Intent(this, LoginActivity::class.java))
       finish()
     }
   }
+
+  private fun saveOnboardingStatus() {
+    val sharedPreferences: SharedPreferences =
+      getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+    val editor: SharedPreferences.Editor = sharedPreferences.edit()
+    editor.putBoolean("onBoarding", true)
+    editor.apply()
+  }
+
+  private fun isOnboardingCompleted(): Boolean {
+    val sharedPreferences: SharedPreferences =
+      getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+    return sharedPreferences.getBoolean("onBoarding", false)
+  }
+
+//  private fun showLoading() {
+//    progressDialog.show()
+//  }
+
+//  private fun hideLoading() {
+//    progressDialog.dismiss()
+//  }
+
 
   companion object {
     const val TAG: String = "ONBOARDING_ACTIVITY"

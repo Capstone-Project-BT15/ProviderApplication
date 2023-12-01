@@ -64,4 +64,15 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Judul</string>
     <string name="title_category">Kategori</string>
+    <string name="minimal">Minimal</string>
+    <string name="maximal">Maksimal</string>
+    <string name="lbl_pin_point">PinPoint</string>
+    <string name="upload">Unggah</string>
+    <string name="yeah">Yeah!</string>
+    <string name="berhasil_login">Anda berhasil login. Sudah tidak sabar untuk belajar ya?</string>
+    <string name="gagal_login">Gagal Login</string>
+    <string name="gagal_memuat_data">Gagal memuat data. Periksa koneksi internet Anda atau coba lagi nanti.</string>
+    <string name="username_password_salah">Username atau Password Anda Salah</string>
+    <string name="oke">Oke</string>
+
 </resources>
