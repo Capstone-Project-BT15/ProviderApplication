@@ -64,4 +64,9 @@ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title">Judul</string>
     <string name="title_category">Kategori</string>
+    <string name="minimal">Minimal</string>
+    <string name="maximal">Maksimal</string>
+    <string name="lbl_pin_point">PinPoint</string>
+    <string name="upload">Unggah</string>
+
 </resources>
