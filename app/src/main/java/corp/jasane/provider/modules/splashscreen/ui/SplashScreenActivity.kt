@@ -23,7 +23,12 @@ class SplashScreenActivity :
       startActivity(destIntent)
       finish()
       }, 3000)
+    setupView()
     }
+
+  private fun setupView() {
+    supportActionBar?.hide()
+  }
 
     override fun setUpClicks(): Unit {
     }

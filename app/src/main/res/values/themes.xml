@@ -1,6 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme. -->
-    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>
         <item name="colorPrimaryVariant">@color/blue</item>
@@ -8,9 +8,11 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/blue</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/black</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -20,5 +22,11 @@
 
     <style name="BottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="DatePickerTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/black</item>
+        <item name="colorSecondary">@color/blue</item>
+        <item name="colorOnPrimary">@color/black</item>
     </style>
 </resources>

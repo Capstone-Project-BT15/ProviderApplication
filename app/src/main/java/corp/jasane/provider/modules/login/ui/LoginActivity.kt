@@ -18,7 +18,9 @@ import corp.jasane.provider.databinding.ActivityLoginBinding
 import corp.jasane.provider.modules.ViewModelFactory
 import corp.jasane.provider.modules.home.ui.HomeActivity
 import corp.jasane.provider.modules.login.data.viewModel.LoginActivityViewModel
-import corp.jasane.provider.modules.signup.ui.SignupActivity
+import corp.jasane.provider.modules.register.ui.RegisterActivity
+import corp.jasane.provider.modules.verificationBiodata.verificationFirst.ui.VerificationFirstActivity
+import corp.jasane.provider.modules.verificationBiodata.verificationTwo.VerificationTwoActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -100,15 +102,6 @@ class LoginActivity : AppCompatActivity() {
                             }
                             Toast.makeText(this@LoginActivity, R.string.gagal_login, Toast.LENGTH_SHORT).show()
                         }
-                    } else {
-                        AlertDialog.Builder(this@LoginActivity).apply {
-                            setTitle(R.string.gagal_login)
-                            setMessage(R.string.username_password_salah)
-                            setPositiveButton(R.string.oke) { _, _ ->
-                            }
-                            create()
-                            show()
-                        }
                     }
                 }
 
@@ -126,8 +119,15 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.textSignup.setOnClickListener {
-            startActivity(Intent(this, SignupActivity::class.java))
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+        setupView()
+
+    }
+
+    private fun setupView() {
+        supportActionBar?.hide()
     }
 
     private fun showLoading() {

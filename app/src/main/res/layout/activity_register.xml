@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/constraintSignup"
-    tools:context=".modules.signup.ui.SignupActivity">
+    tools:context=".modules.register.ui.RegisterActivity">
 
     <TextView
         android:id="@+id/Signup"
@@ -66,39 +66,41 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_gravity="start"
+            android:textColor="@color/black"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/phoneTextView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="@string/nomor_handphone"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout" />-->
+    <TextView
+        android:id="@+id/phone_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/nomor_handphone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout" />
 
-<!--    <com.google.android.material.textfield.TextInputLayout-->
-<!--        android:id="@+id/PhoneEditTextLayout"-->
-<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="32dp"-->
-<!--        android:layout_marginEnd="32dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/phoneTextView"-->
-<!--        app:startIconDrawable="@drawable/baseline_local_phone_24">-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phone_edit_text_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_text_view"
+        app:startIconDrawable="@drawable/baseline_local_phone_24">
 
-<!--        <corp.jasane.provider.appcomponents.utility.PhoneEditInputLayout-->
-<!--            android:id="@+id/phoneEditText"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:layout_gravity="start"-->
-<!--            android:inputType="number" />-->
-<!--    </com.google.android.material.textfield.TextInputLayout>-->
+        <corp.jasane.provider.appcomponents.utility.PhoneEditInputLayout
+            android:id="@+id/phone_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_gravity="start"
+            android:textColor="@color/black"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/text"
@@ -108,7 +110,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditTextLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/phone_edit_text_layout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailEditTextLayout"
@@ -130,6 +132,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:focusable="true"
+            android:textColor="@color/black"
             android:inputType="textEmailAddress"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -163,6 +166,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
+            android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -195,6 +199,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
+            android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 

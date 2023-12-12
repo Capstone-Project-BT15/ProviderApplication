@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.biodata.ui.BiodataActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nama_lengkap"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/full_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_6pxh"
+            android:text="@string/masukkan_nama_anda"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10pxh"
+            android:background="@drawable/rectangle_bg_gray_100"
+            android:paddingStart="@dimen/_18pxh"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_full_name"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/title_no_handphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nomor_handphone"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/full_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/no_handphone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_no_handphone">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/no_handphone_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/masukkan_no_handphone"
+                android:textColor="@color/black"
+                android:layout_gravity="start"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_provinsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_provinsi"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/no_handphone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/provinsi_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_provinsi">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/provinsi_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/masukkan_provinsi"
+                android:textColor="@color/black"
+                android:ems="10"
+                android:layout_gravity="start"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_kota"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/provinsi_input_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_city">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/city_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/masukkan_kota"
+                android:textColor="@color/black"
+                android:ems="10"
+                android:layout_gravity="start"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_kelurahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_kelurahan"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/city_input_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kelurahan_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_kelurahan">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/kelurahan_edit_texr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:hint="@string/masukkan_kelurahan"
+                android:ems="10"
+                android:layout_gravity="start"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_address"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/kelurahan_input_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/address_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_address"
+            tools:ignore="MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/address_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                android:ems="10"
+                android:hint="@string/masukkan_address" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/title_pin_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_pin_point"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/address_input_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/pin_point_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:text="@string/select_location"
+            android:padding="@dimen/_16pxh"
+            android:background="@drawable/rectangle_bg_gray_100"
+            app:layout_constraintTop_toBottomOf="@+id/title_pin_point"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/upload"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_50pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginBottom="@dimen/_16pxh"
+            android:text="@string/title_save"
+            android:background="@drawable/rounded_button"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pin_point_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

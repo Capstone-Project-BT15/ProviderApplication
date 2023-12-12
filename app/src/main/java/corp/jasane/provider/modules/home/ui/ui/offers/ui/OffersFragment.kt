@@ -1,4 +1,4 @@
-package corp.jasane.provider.modules.home.ui.ui.offers
+package corp.jasane.provider.modules.home.ui.ui.offers.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import corp.jasane.provider.databinding.FragmentOffersBinding
+import corp.jasane.provider.modules.home.ui.ui.offers.data.viewModel.OffersViewModel
 
 class OffersFragment : Fragment() {
 

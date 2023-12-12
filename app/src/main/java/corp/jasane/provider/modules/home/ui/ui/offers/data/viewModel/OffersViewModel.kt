@@ -1,4 +1,4 @@
-package corp.jasane.provider.modules.home.ui.ui.offers
+package corp.jasane.provider.modules.home.ui.ui.offers.data.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -11,6 +11,7 @@ import corp.jasane.provider.R
 import corp.jasane.provider.appcomponents.base.BaseActivity
 import corp.jasane.provider.databinding.ActivityOnboardingBinding
 import corp.jasane.provider.modules.home.ui.HomeActivity
+import corp.jasane.provider.modules.home.ui.ui.home.HomeFragment
 import corp.jasane.provider.modules.login.ui.LoginActivity
 import corp.jasane.provider.modules.onboarding.`data`.viewmodel.OnboardingVM
 import kotlin.String
@@ -30,6 +31,11 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(R.layout.acti
     } else {
       binding.onboardingVM = viewModel
     }
+    setupView()
+  }
+
+  private fun setupView() {
+    supportActionBar?.hide()
   }
 
   override fun setUpClicks(): Unit {

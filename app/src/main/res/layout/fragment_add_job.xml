@@ -19,6 +19,7 @@
         android:layout_marginEnd="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_16pxh"
         app:cardCornerRadius="@dimen/_10pxh"
+        app:cardBackgroundColor="@color/cream"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -28,9 +29,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_job"
+            android:src="@drawable/image_not_found"
             tools:ignore="ContentDescription,MissingConstraints"
-            tools:src="@drawable/img_job" />
+            tools:src="@drawable/image_not_found" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -39,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_16pxh"
-        android:text="@string/name"
+        android:text="@string/title"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardViewImage" />
 
@@ -55,11 +57,12 @@
         app:layout_constraintTop_toBottomOf="@+id/title_text_view">
 
         <corp.jasane.provider.appcomponents.utility.TitleTextInputLayout
-            android:id="@+id/nameEditText"
+            android:id="@+id/title_edit_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:ems="10"
             android:layout_gravity="start"
+            android:textColor="@color/black"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,11 +83,12 @@
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginEnd="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_6pxh"
-        android:text="@string/title_category"
+        android:hint="@string/title_category"
         android:gravity="center_vertical"
         android:padding="@dimen/_10pxh"
         android:background="@drawable/text_bg"
         android:paddingStart="@dimen/_18pxh"
+        android:textColor="@color/black"
         app:endIconDrawable="@drawable/baseline_keyboard_arrow_down_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textColor="@color/black"
             android:layout_gravity="start"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -159,6 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textColor="@color/black"
             android:layout_gravity="start"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -169,7 +175,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_8pxh"
-        android:text="@string/pekerjaan"
+        android:text="@string/job_type"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/minEditTextLayout" />
 
@@ -180,9 +187,10 @@
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginEnd="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_6pxh"
-        android:text="@string/pekerjaan"
+        android:hint="@string/choose_type_job"
         android:gravity="center_vertical"
         android:padding="@dimen/_10pxh"
+        android:textColor="@color/black"
         android:background="@drawable/text_bg"
         android:paddingStart="@dimen/_18pxh"
         app:endIconDrawable="@drawable/baseline_keyboard_arrow_down_24"
@@ -197,7 +205,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_8pxh"
-        android:text="@string/date"
+        android:text="@string/title_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/job" />
 
@@ -208,9 +216,11 @@
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginEnd="@dimen/_32pxh"
         android:layout_marginTop="@dimen/_6pxh"
-        android:text="@string/date"
+        android:hint="@string/date"
+        android:onClick="showDatePicker"
         android:gravity="center_vertical"
         android:padding="@dimen/_10pxh"
+        android:textColor="@color/black"
         android:background="@drawable/text_bg"
         android:paddingStart="@dimen/_18pxh"
         app:endIconDrawable="@drawable/ic_baseline_lock_24"
@@ -248,6 +258,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ems="10"
+            android:textColor="@color/black"
             android:hint="@string/title_description" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -262,23 +273,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionInputLayout" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mapCard"
-        android:layout_width="@dimen/_360pxh"
-        android:layout_height="@dimen/_200pxh"
-        android:layout_marginTop="@dimen/_8pxh"
-        app:cardCornerRadius="@dimen/_12pxh"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_pin_point">
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".modules.maps.ui.MapsFragment" />
-    </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/pin_point_text"
         android:layout_width="match_parent"
@@ -286,10 +280,11 @@
         android:layout_marginTop="@dimen/_8pxh"
         android:layout_marginStart="@dimen/_32pxh"
         android:layout_marginEnd="@dimen/_32pxh"
-        android:text="@string/pin_point"
+        android:hint="@string/select_location"
         android:padding="@dimen/_16pxh"
+        android:textColor="@color/black"
         android:background="@drawable/rectangle_bg_gray_100"
-        app:layout_constraintTop_toBottomOf="@+id/mapCard"
+        app:layout_constraintTop_toBottomOf="@+id/title_pin_point"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import corp.jasane.provider.R
 
 class AddJobAdapter(
-    private var mList: ArrayList<String>,
+    private var mList: List<String>,
     private val itemClickListener: (String) -> Unit):
     RecyclerView.Adapter<AddJobAdapter.ViewHolder>() {
 
@@ -22,7 +22,6 @@ class AddJobAdapter(
         holder.item.text = item
 
         holder.itemView.setOnClickListener {
-            // Trigger the itemClickListener when an item is clicked
             itemClickListener.invoke(item)
         }
     }

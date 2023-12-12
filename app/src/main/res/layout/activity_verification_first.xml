@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.verificationBiodata.verificationFirst.ui.VerificationFirstActivity">
+
+    <ImageView
+        android:id="@+id/circle_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:src="@drawable/circle1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/keterangan_ktp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ketentuan_foto_ktp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle_1" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/line_horizontal"
+        android:src="@drawable/line_horizontal"
+        android:layout_marginTop="@dimen/_24pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        app:layout_constraintStart_toEndOf="@+id/keterangan_ktp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/circle_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:src="@drawable/circle_2_white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/line_horizontal"/>
+
+    <ImageView
+        android:id="@+id/circle_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:src="@drawable/circle_3_white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle_2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/true_verification"
+        android:layout_marginTop="@dimen/_32pxh"
+        android:src="@drawable/check_verification"
+        app:layout_constraintTop_toBottomOf="@+id/circle_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_view_check"
+        android:layout_width="@dimen/_100pxh"
+        android:layout_height="@dimen/_100pxh"
+        android:layout_marginTop="@dimen/_160pxh"
+        android:layout_marginStart="@dimen/_300pxh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circle_3"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="ic_check.json"
+        app:lottie_loop="true"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:id="@+id/ellipse_1"
+        android:layout_marginTop="@dimen/_36pxh"
+        android:src="@drawable/ellipse_circle_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/true_verification"/>
+
+    <TextView
+        android:id="@+id/text_ellipse_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:layout_marginEnd="@dimen/_16pxh"
+        android:text="@string/ketentuan_pertama"
+        app:layout_constraintBottom_toBottomOf="@+id/ellipse_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellipse_1"
+        app:layout_constraintTop_toTopOf="@+id/ellipse_1" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:id="@+id/ellipse_2"
+        android:layout_marginTop="@dimen/_36pxh"
+        android:src="@drawable/ellipse_circle_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ellipse_1"/>
+
+    <TextView
+        android:id="@+id/text_ellipse_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:layout_marginEnd="@dimen/_16pxh"
+        android:text="@string/ketentuan_kedua"
+        app:layout_constraintBottom_toBottomOf="@+id/ellipse_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellipse_2"
+        app:layout_constraintTop_toTopOf="@+id/ellipse_2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:id="@+id/ellipse_3"
+        android:layout_marginTop="@dimen/_36pxh"
+        android:src="@drawable/ellipse_circle_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ellipse_2"/>
+
+    <TextView
+        android:id="@+id/text_ellipse_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:layout_marginEnd="@dimen/_16pxh"
+        android:text="@string/ketentuan_ketiga"
+        app:layout_constraintBottom_toBottomOf="@+id/ellipse_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellipse_3"
+        app:layout_constraintTop_toTopOf="@+id/ellipse_3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:id="@+id/ellipse_4"
+        android:layout_marginTop="@dimen/_36pxh"
+        android:src="@drawable/ellipse_circle_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ellipse_3"/>
+
+    <TextView
+        android:id="@+id/text_ellipse_4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:layout_marginEnd="@dimen/_16pxh"
+        android:text="@string/ketentuan_keempat"
+        app:layout_constraintBottom_toBottomOf="@+id/ellipse_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellipse_4"
+        app:layout_constraintTop_toTopOf="@+id/ellipse_4" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:id="@+id/ellipse_5"
+        android:layout_marginTop="@dimen/_36pxh"
+        android:src="@drawable/ellipse_circle_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_ellipse_4"/>
+
+    <TextView
+        android:id="@+id/text_ellipse_5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:layout_marginEnd="@dimen/_16pxh"
+        android:text="@string/ketentuan_kelima"
+        app:layout_constraintBottom_toBottomOf="@+id/ellipse_5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellipse_5"
+        app:layout_constraintTop_toTopOf="@+id/ellipse_5" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:layout_marginEnd="@dimen/_32pxh"
+        android:layout_marginBottom="@dimen/_16pxh"
+        android:text="@string/title_save"
+        android:background="@drawable/rounded_button"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

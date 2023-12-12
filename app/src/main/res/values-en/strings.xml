@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <string name="app_name">jasane_provider</string>
+    <string name="app_name">Jasane Provider</string>
     <string name="loading">Loading...</string>
     <string name="no_internet_connection">No internet connection!</string>
     <string name="msg_selamat_datang">Welcome to JASANE</string>
@@ -31,7 +31,6 @@
     <string name="strip">-</string>
     <string name="biaya_terendah">Rp100,000</string>
     <string name="biaya_tertinggi">Rp120,000</string>
-    <string name="kerja_lepas">Freelance Work</string>
     <string name="maps">Map</string>
     <string name="description">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Through the cites of the word in classical literature, discovered the undoubtable
     Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Through the cites of the word in classical literature, discovered the undoubtable </string>
@@ -50,11 +49,11 @@
     <string name="finish">Finished</string>
     <string name="reject">Rejected</string>
     <string name="accepted">Accepted</string>
-    <string name="date">01-11-2024</string>
+    <string name="date">dd-mm-yyyy</string>
     <string name="address">Jalan Tanjung Duren Timur III RT.05/RW 02, Tanjung Duren, Kec. Tanah Sereal, Jakarta, West Java.</string>
     <string name="lbl_no_handphone">085187833232</string>
     <string name="rate_offer">Rate you want to offer</string>
-    <string name="masukkan_nominalnya">Enter the Offer</string>
+    <string name="masukkan_nominalnya">Fill</string>
     <string name="txt_description">Your Experience</string>
     <string name="lbl_Description">Explain your experience</string>
     <string name="pasang_penawaran">Place an Offer</string>
@@ -70,7 +69,46 @@
     <string name="berhasil_login">You have successfully logged in. Excited to start learning?</string>
     <string name="gagal_login">Login Failed</string>
     <string name="gagal_memuat_data">Failed to load data. Please check your internet connection or try again later.</string>
-    <string name="username_password_salah">Incorrect Username or Password</string>
+    <string name="username_password_salah">Incorrect Your Data</string>
     <string name="oke">OK</string>
-
+    <string name="job_type">Type Job</string>
+    <string name="choose_type_job">Choose a job type</string>
+    <string name="title_date">Date</string>
+    <string name="select_location">Choose Your Location</string>
+    <string name="kerja_lepas">Freelance</string>
+    <string name="part_time">Part Time</string>
+    <string name="full_time">Full Time</string>
+    <string name="kontrak">Contract</string>
+    <string name="select">Select</string>
+    <string name="current_location">Current Location</string>
+    <string name="title_select_location">Select Your Location Point!</string>
+    <string name="logout">Logout</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="close">Close</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="set_alamat">Set Address</string>
+    <string name="rating">Rating</string>
+    <string name="change_password">Change Password</string>
+    <string name="share">Share</string>
+    <string name="about_application">About Application</string>
+    <string name="nama_lengkap">Full Name</string>
+    <string name="title_save">Save</string>
+    <string name="title_kota">City/District</string>
+    <string name="title_provinsi">Province</string>
+    <string name="title_kelurahan">Village</string>
+    <string name="title_address">Full Address</string>
+    <string name="masukkan_provinsi">Insert Province</string>
+    <string name="masukkan_kota">Insert City/District</string>
+    <string name="masukkan_kelurahan">Insert Village</string>
+    <string name="masukkan_address">Insert Full Address</string>
+    <string name="ya_mengerti">Yes, Understand</string>
+    <string name="ketentuan_pertama">Make sure your photo is clearly visible and not blurry.</string>
+    <string name="ketentuan_kedua">Make sure your photo is not cropped and covered.</string>
+    <string name="ketentuan_ketiga">Make sure your ID card is still valid.</string>
+    <string name="ketentuan_keempat">Make sure your ID card photo uses the original card, not a photocopy or scan.</string>
+    <string name="ketentuan_kelima">Make sure you follow and understand all the information above.</string>
+    <string name="ketentuan_foto_ktp">Photo KTP Conditions</string>
+    <string name="title_scan_ktp">Take Photo KTP</string>
+    <string name="verification_identity">Verify Resident Identity Card</string>
+    <string name="title_biodata">Bio data</string>
 </resources>

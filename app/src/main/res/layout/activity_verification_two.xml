@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".modules.verificationBiodata.verificationTwo.VerificationTwoActivity">
+
+    <ImageView
+        android:id="@+id/circle_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:src="@drawable/circle1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/circle_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:src="@drawable/circle_2_blue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle_1"/>
+
+    <TextView
+        android:id="@+id/keterangan_ktp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_scan_ktp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/circle_2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/line_horizontal"
+        android:src="@drawable/line_horizontal"
+        android:layout_marginTop="@dimen/_24pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        app:layout_constraintStart_toEndOf="@+id/keterangan_ktp"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/circle_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_16pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:src="@drawable/circle_3_white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/line_horizontal"/>
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:layout_marginEnd="@dimen/_32pxh"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_transparant_radius"
+        app:layout_constraintTop_toBottomOf="@+id/circle_3"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_true_verification"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_130pxh"
+        android:layout_marginTop="@dimen/_32pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:layout_marginEnd="@dimen/_32pxh"
+        app:cardCornerRadius="@dimen/_16pxh"
+        app:cardBackgroundColor="@color/cream"
+        app:layout_constraintTop_toBottomOf="@+id/camera_preview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/text_true_verification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Correct Photo"
+            android:layout_marginStart="@dimen/_24pxh"/>
+
+        <ImageView
+            android:layout_width="@dimen/_200pxh"
+            android:layout_height="match_parent"
+            android:id="@+id/true_verification"
+            android:src="@drawable/check_verification"
+            android:layout_gravity="end"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_view_check"
+            android:layout_width="@dimen/_70pxh"
+            android:layout_height="@dimen/_70pxh"
+            android:layout_marginStart="@dimen/_130pxh"
+            android:layout_gravity="center_vertical"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="ic_check.json"
+            app:lottie_loop="true" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_130pxh"
+        android:layout_marginTop="@dimen/_8pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:layout_marginEnd="@dimen/_32pxh"
+        android:id="@+id/card_view_false_verification"
+        app:cardCornerRadius="@dimen/_16pxh"
+        app:cardBackgroundColor="@color/cream"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_true_verification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/text_false_verification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Wrong Photo"
+            android:layout_marginStart="@dimen/_24pxh"/>
+
+    <ImageView
+        android:layout_width="@dimen/_200pxh"
+        android:layout_height="match_parent"
+        android:id="@+id/false_verification"
+        android:src="@drawable/cross_verification"
+        android:layout_gravity="end" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_view_cross"
+            android:layout_width="@dimen/_70pxh"
+            android:layout_height="@dimen/_70pxh"
+            android:layout_marginStart="@dimen/_130pxh"
+            android:layout_gravity="center_vertical"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="cross.json"
+            app:lottie_loop="true" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50pxh"
+        android:layout_marginStart="@dimen/_32pxh"
+        android:layout_marginEnd="@dimen/_32pxh"
+        android:layout_marginBottom="@dimen/_16pxh"
+        android:text="@string/title_save"
+        android:background="@drawable/rounded_button"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

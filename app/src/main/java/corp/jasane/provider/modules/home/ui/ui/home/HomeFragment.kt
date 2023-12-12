@@ -6,25 +6,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import corp.jasane.provider.R
 import corp.jasane.provider.databinding.FragmentHomeBinding
-import corp.jasane.provider.databinding.ItemWorkerBinding
 import corp.jasane.provider.modules.ViewModelFactory
 import corp.jasane.provider.modules.login.ui.LoginActivity
+import corp.jasane.provider.modules.verificationBiodata.verificationFirst.ui.VerificationFirstActivity
+import corp.jasane.provider.modules.verificationBiodata.verificationTwo.VerificationTwoActivity
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by viewModels<HomeViewModel> {
+    private val viewModel by viewModels<HomeFragmentViewModel> {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -36,34 +32,32 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+        val root: View = binding.root
+        progressDialog = Dialog(requireContext())
+        progressDialog.setContentView(R.layout.progress_dialog)
+        progressDialog.setCancelable(false)
+        progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        showLoading()
         viewModel.getSession().observe(viewLifecycleOwner) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
-                requireActivity().finish()
+                requireActivity().
+                finish()
             } else {
-//                viewModel.workDetails.observe(viewLifecycleOwner) { workDetails ->
-//                    adapter.setList(ArrayList(workDetails))
-//                }
                 hideLoading()
             }
         }
-
-        val spanCount = 2
-        val layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
-        val recyclerView: RecyclerView = binding.recyclerListWorker
-        recyclerView.layoutManager = layoutManager
-
-//        viewModel.jobItemList.observe(viewLifecycleOwner) { jobItems ->
-//            adapter.submitList(jobItems)
-//        }
+        return root
     }
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        val spanCount = 2
+//        val layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+//        val recyclerView: RecyclerView = binding.recyclerListWorker
+//        recyclerView.layoutManager = layoutManager
+//    }
 
     private fun showLoading() {
         progressDialog.show()

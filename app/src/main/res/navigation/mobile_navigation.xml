@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_offers"
-        android:name="corp.jasane.provider.modules.home.ui.ui.offers.OffersFragment"
+        android:name="corp.jasane.provider.modules.home.ui.ui.offers.ui.OffersFragment"
         android:label="@string/penawaran"
         tools:layout="@layout/fragment_offers" />
 

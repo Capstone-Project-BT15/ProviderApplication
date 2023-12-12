@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import corp.jasane.provider.R
-import corp.jasane.provider.databinding.FragmentHomeBinding
 import corp.jasane.provider.databinding.FragmentJobBinding
-import corp.jasane.provider.modules.home.ui.ui.home.HomeViewModel
 
 class JobFragment : Fragment() {
     private var _binding: FragmentJobBinding? = null
