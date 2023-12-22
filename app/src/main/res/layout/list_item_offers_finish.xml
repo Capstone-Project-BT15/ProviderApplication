@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/rectangle_bg_gray_100"
+    card_view:layout_constraintStart_toStartOf="parent"
+    card_view:layout_constraintEnd_toEndOf="parent"
+    card_view:cardCornerRadius="@dimen/_20pxh">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewImageFinish"
+        android:layout_width="@dimen/_50pxh"
+        android:layout_height="@dimen/_50pxh"
+        android:layout_marginTop="@dimen/_12pxh"
+        android:layout_marginStart="@dimen/_16pxh"
+        card_view:cardCornerRadius="@dimen/_10pxh"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/tv_item_photo_accepted"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_job"
+            tools:ignore="ContentDescription,MissingConstraints"
+            tools:src="@drawable/img_job" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        card_view:layout_constraintStart_toEndOf="@+id/cardViewImageFinish"
+        card_view:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/text_name_finish"
+        android:layout_marginStart="@dimen/_16pxh"
+        android:text="@string/title"
+        android:layout_marginTop="@dimen/_16pxh"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8pxh"
+        android:text="@string/upload"
+        android:textSize="@dimen/_10sp"
+        android:id="@+id/postingan_finish"
+        android:layout_marginStart="@dimen/_16pxh"
+        card_view:layout_constraintStart_toEndOf="@+id/cardViewImageFinish"
+        card_view:layout_constraintTop_toBottomOf="@+id/text_name_finish"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerListWorker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:nestedScrollingEnabled="false"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_12pxh"
+        android:layout_marginBottom="@dimen/_12pxh"
+        card_view:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent"
+        card_view:layout_constraintTop_toBottomOf="@+id/cardViewImageFinish"
+        tools:ignore="MissingConstraints"
+        tools:listitem="@layout/item_offers_accepted"
+        tools:itemCount="2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

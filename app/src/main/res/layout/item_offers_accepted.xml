@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayoutContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        card_view:cardCornerRadius="@dimen/_20pxh">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_220pxh">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewImage"
+                android:layout_width="@dimen/_50pxh"
+                android:layout_height="@dimen/_50pxh"
+                android:layout_marginTop="@dimen/_12pxh"
+                android:layout_marginStart="@dimen/_12pxh"
+                card_view:cardCornerRadius="@dimen/_10pxh"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/tv_item_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_job"
+                    tools:ignore="ContentDescription,MissingConstraints"
+                    tools:src="@drawable/img_job" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/job_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12pxh"
+                android:layout_marginEnd="8dp"
+                android:layout_toEndOf="@id/cardViewImage"
+                android:textSize="@dimen/_12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_12pxh"
+                card_view:layout_constraintStart_toEndOf="@+id/cardViewImage"
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:text="@string/job_name" />
+
+            <ImageView
+                android:id="@+id/mark_address"
+                android:layout_width="@dimen/_16pxh"
+                android:layout_height="@dimen/_16pxh"
+                android:src="@drawable/baseline_location_on_24"
+                android:layout_marginTop="@dimen/_12pxh"
+                android:layout_marginStart="@dimen/_12pxh"
+                card_view:layout_constraintTop_toBottomOf="@+id/job_name"
+                card_view:layout_constraintStart_toEndOf="@+id/cardViewImage" />
+
+            <TextView
+                android:id="@+id/job_distance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/cardViewImage"
+                android:layout_marginEnd="@dimen/_8pxh"
+                android:textSize="@dimen/_10sp"
+                android:textStyle="bold"
+                card_view:layout_constraintStart_toEndOf="@+id/mark_address"
+                card_view:layout_constraintTop_toTopOf="@+id/mark_address"
+                card_view:layout_constraintBottom_toBottomOf="@+id/mark_address"
+                tools:text="@string/jarak" />
+
+            <TextView
+                android:id="@+id/budget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8pxv"
+                android:layout_marginStart="@dimen/_8pxv"
+                android:textSize="@dimen/_10sp"
+                card_view:layout_constraintEnd_toEndOf="@+id/price"
+                card_view:layout_constraintStart_toStartOf="@+id/price"
+                card_view:layout_constraintTop_toBottomOf="@+id/price"
+                android:text="@string/anggaran" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8pxv"
+                android:text="@string/biaya_terendah"
+                android:layout_marginEnd="@dimen/_12pxh"
+                android:layout_marginTop="@dimen/_16pxv"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sp"
+                card_view:layout_constraintHorizontal_bias="0.95"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80pxh"
+                android:id="@+id/description"
+                android:layout_marginStart="@dimen/_16pxh"
+                android:layout_marginEnd="@dimen/_16pxh"
+                android:layout_marginTop="@dimen/_8pxh"
+                android:text="@string/title"
+                android:background="@drawable/bg_cream_rounded"
+                android:paddingStart="@dimen/_12pxh"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:id="@+id/dividerLine"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginBottom="@dimen/_10pxh"
+                android:layout_marginTop="@dimen/_12pxh"
+                card_view:layout_constraintTop_toBottomOf="@+id/description"/>
+
+            <Button
+                android:id="@+id/button_item_accepted"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_40pxh"
+                android:layout_marginEnd="@dimen/_14pxh"
+                android:background="@drawable/rounded_button"
+                android:text="@string/finish"
+                android:textSize="@dimen/_12sp"
+                card_view:layout_constraintTop_toBottomOf="@+id/dividerLine"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>
