@@ -64,9 +64,6 @@ class AddJobViewModel(
     private val _insertWorkResponse = MutableLiveData<InsertWorkResponse?>()
     val insertWorkResponse: LiveData<InsertWorkResponse?> get() = _insertWorkResponse
 
-    private val _errorResponse = MutableLiveData<String>()
-    val errorResponse: LiveData<String> get() = _errorResponse
-
     fun uploadWork(
         imageJob: File,
         title: String,
@@ -79,8 +76,6 @@ class AddJobViewModel(
         description: String,
         lat: String,
         lon: String,
-        onSuccess: (InsertWorkResponse) -> Unit,
-        onError: (String) -> Unit
     ) {
         viewModelScope.launch() {
             userRepository.getSession().collect {
@@ -119,25 +114,21 @@ class AddJobViewModel(
                                 lonPart,
                                 "Bearer ${it.access_token}"
                             )
-                            onSuccess(successResponse)
-                            Log.d("onSuccess", "$onSuccess")
+                            _insertWorkResponse.postValue(successResponse)
+                            Log.d("onSuccess", "$successResponse")
                         } catch (e: HttpException) {
-                            val errorBody = e.response()?.errorBody()?.string()
-                            val errorResponse = Gson().fromJson(errorBody, InsertWorkResponse::class.java)
-                            onError(errorResponse?.meta?.message ?: "Unknown error")
+                            // Handle exceptions here
+                            val responseBody = e.response()?.errorBody()?.string()
+                            val errorCode = e.code()
+                            Log.e("HttpException", "Error code: $errorCode, Response body: $responseBody", e)
+                        }
                         }
                         Log.d(
                             "cekdataLAig",
                             "$imageJob, $title, $categoryId, $telephone, $minBudget, $maxBudget, $typeOfWork, $startDate, $description, $lat, $lon, Bearer ${it.access_token}"
                         )
-                    }
-                } catch (e: HttpException) {
-                    val errorBody = e.response()?.errorBody()?.string()
-                    val errorResponse = Gson().fromJson(errorBody, InsertWorkResponse::class.java)
-
-                    withContext(Dispatchers.Main) {
-                        onError(errorResponse.meta.message)
-                    }
+                    } catch (e: HttpException) {
+                    // Handle exceptions here
                 }
             }
         }

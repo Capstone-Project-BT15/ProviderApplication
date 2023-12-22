@@ -1,17 +1,13 @@
 package corp.jasane.provider.modules.home.ui.ui.addJob
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Matrix
 import android.location.Geocoder
-import android.media.ExifInterface
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -26,8 +22,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.model.LatLng
@@ -41,15 +35,11 @@ import corp.jasane.provider.appcomponents.utility.uriToFile
 import corp.jasane.provider.data.local.ItemJob
 import corp.jasane.provider.data.local.createJobList
 import corp.jasane.provider.data.response.Category
-import corp.jasane.provider.data.response.InsertWorkResponse
 import corp.jasane.provider.databinding.FragmentAddJobBinding
 import corp.jasane.provider.modules.ViewModelFactory
 import corp.jasane.provider.modules.home.ui.HomeActivity
 import corp.jasane.provider.modules.home.ui.ui.maps.MapsFragment
-import kotlinx.coroutines.Delay
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -175,6 +165,28 @@ class AddJobFragment : Fragment(), DatePickerFragment.DialogDateListener, MapsFr
         binding.upload.setOnClickListener {
             uploadImage()
         }
+
+        viewModel.insertWorkResponse.observe(viewLifecycleOwner) { insertWorkResponse ->
+            insertWorkResponse?.let {
+                // Check the 'success' status directly
+                if (it.meta.status == "success") {
+                    hideLoading()
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Success")
+                        .setMessage(it.meta.message)
+                        .setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+                            val intent = Intent(requireContext(), HomeActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                            startActivity(intent)
+                        }
+                        .show()
+                } else {
+                    // Handle error case
+                    showToast("Error uploading work: ${it.meta.message}")
+                }
+            }
+        }
         return root
     }
 
@@ -274,7 +286,7 @@ class AddJobFragment : Fragment(), DatePickerFragment.DialogDateListener, MapsFr
     private fun showImage() {
         val imageView: ImageView = binding.tvItemPhoto
         currentImageUri?.let { uri ->
-            // Mengatur inSampleSize untuk mengontrol ukuran gambar
+
             val file = uriToFile(uri, requireContext())
 
             val rotatedBitmap = BitmapFactory.decodeFile(file.path).getRotatedBitmap(file)
@@ -292,8 +304,10 @@ class AddJobFragment : Fragment(), DatePickerFragment.DialogDateListener, MapsFr
                     val title = binding.titleEditText.text.toString()
                     val categoryId = this@AddJobFragment.categoryId
                     val telephone = "082174532772"
-                    val minBudget = binding.minEditText.text.toString()
-                    val maxBudget = binding.maxEditText.text.toString()
+                    val minBudgetString = binding.minEditText.text.toString()
+                    val maxBudgetString = binding.maxEditText.text.toString()
+                    val minBudget = minBudgetString.replace(".", "").replace(",", "")
+                    val maxBudget = maxBudgetString.replace(".", "").replace(",", "")
                     val typeOfWork = binding.job.text.toString()
                     val startDate = binding.date.text.toString()
                     val description = binding.editDesciption.text.toString()
@@ -312,29 +326,6 @@ class AddJobFragment : Fragment(), DatePickerFragment.DialogDateListener, MapsFr
                         description,
                         lat,
                         lon,
-                        onSuccess = { successResponse ->
-                            hideLoading()
-                            AlertDialog.Builder(requireContext())
-                                .setTitle("Success")
-                                .setMessage(successResponse.meta.message)
-                                .setPositiveButton("OK") { dialog, _ ->
-                                    dialog.dismiss()
-                                    val intent = Intent(requireContext(), HomeActivity::class.java)
-                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                                    startActivity(intent)
-                                }
-                                .show()
-                        },
-                        onError = { errorMessage ->
-                            hideLoading()
-                            AlertDialog.Builder(requireContext())
-                                .setTitle("Error")
-                                .setMessage(errorMessage)
-                                .setPositiveButton("OK") { dialog, _ ->
-                                    dialog.dismiss()
-                                }
-                                .show()
-                        }
                     )
                 } catch (e: Exception) {
                     // Handle exceptions here

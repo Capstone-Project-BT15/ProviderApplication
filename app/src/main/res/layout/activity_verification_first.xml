@@ -192,7 +192,7 @@
         app:layout_constraintTop_toTopOf="@+id/ellipse_5" />
 
     <Button
-        android:id="@+id/button_save"
+        android:id="@+id/button_continue"
         android:layout_width="0dp"
         android:layout_height="@dimen/_50pxh"
         android:layout_marginStart="@dimen/_32pxh"

@@ -27,13 +27,24 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        val parentFragment = parentFragment
-        if (parentFragment != null && parentFragment is DialogDateListener) {
-            mListener = parentFragment
+        if (context is DialogDateListener) {
+            mListener = context
+        } else if (parentFragment is DialogDateListener) {
+            mListener = parentFragment as DialogDateListener
         } else {
             throw ClassCastException("$context must implement DialogDateListener")
         }
     }
+
+
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//        if (context is DialogDateListener) {
+//            mListener = context
+//        } else {
+//            throw ClassCastException("$context must implement DialogDateListener")
+//        }
+//    }
 
     override fun onDetach() {
         super.onDetach()

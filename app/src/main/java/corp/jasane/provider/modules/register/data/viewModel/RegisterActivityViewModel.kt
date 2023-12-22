@@ -14,8 +14,8 @@ class RegisterActivityViewModel(
     private val apiService: ApiService
 ) : ViewModel()
 {
-    fun register(fullName: String, telephone: String, email: String, password: String, passwordConfirmation: String): Call<RegisterResponse> {
-        return apiService.register(fullName, telephone, email, password, passwordConfirmation)
+    fun register(telephone: String, email: String, password: String, passwordConfirmation: String): Call<RegisterResponse> {
+        return apiService.register(telephone, email, password, passwordConfirmation)
     }
 
 

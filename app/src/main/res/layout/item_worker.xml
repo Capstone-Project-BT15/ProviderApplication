@@ -11,6 +11,7 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="8dp"
     android:layout_marginBottom="4dp"
+    card_view:cardBackgroundColor="@color/gray_100"
     card_view:cardCornerRadius="@dimen/_20pxh">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,12 +51,12 @@
             card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage"
             tools:text="@string/job_name" />
 
-        <ImageView
-            android:layout_width="@dimen/_16pxh"
-            android:layout_height="@dimen/_16pxh"
-            android:src="@drawable/baseline_location_on_24"
-            card_view:layout_constraintEnd_toStartOf="@+id/job_distance"
-            card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage" />
+<!--        <ImageView-->
+<!--            android:layout_width="@dimen/_16pxh"-->
+<!--            android:layout_height="@dimen/_16pxh"-->
+<!--            android:src="@drawable/baseline_location_on_24"-->
+<!--            card_view:layout_constraintEnd_toStartOf="@+id/job_distance"-->
+<!--            card_view:layout_constraintTop_toBottomOf="@+id/cardViewImage" />-->
 
         <TextView
             android:id="@+id/job_distance"

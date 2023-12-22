@@ -1,8 +1,15 @@
 package corp.jasane.provider.data.retrofit
 
+import corp.jasane.provider.data.response.BiodataResponse
 import corp.jasane.provider.data.response.CategoryResponse
+import corp.jasane.provider.data.response.HomeUserResponse
+import corp.jasane.provider.data.response.InsertPaymentResponse
 import corp.jasane.provider.data.response.InsertWorkResponse
+import corp.jasane.provider.data.response.KtpResponse
 import corp.jasane.provider.data.response.LoginResponse
+import corp.jasane.provider.data.response.OfferFinishedResponse
+import corp.jasane.provider.data.response.OffersRecruiterResponse
+import corp.jasane.provider.data.response.PaymentResponse
 import corp.jasane.provider.data.response.RegisterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -13,7 +20,9 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Part
+import retrofit2.http.Path
 import java.io.File
 
 interface ApiService {
@@ -27,7 +36,6 @@ interface ApiService {
     @FormUrlEncoded
     @POST("api/register/recruiter")
     fun register(
-        @Field("fullname") fullName: String,
         @Field("telephone") telephone: String,
         @Field("email") email: String,
         @Field("password") password: String,
@@ -56,9 +64,52 @@ interface ApiService {
         @Header("Authorization") authorization: String
     ): Call<CategoryResponse>
 
-//    @GET("api/works/{id}")
-//    fun detailWork(
-//        @Path("id") id: Int,
-//        @Header("Authorization") authorization: String
-//    ): Call<GetWorkResponse>
+    @GET("api/offers/recruiter")
+    fun offersRecruiter(
+        @Header("Authorization") authorization: String
+    ): Call<OffersRecruiterResponse>
+
+    @GET("api/home/recruiter")
+    fun home(
+        @Header("Authorization") authorization: String
+    ): Call<HomeUserResponse>
+
+    @GET("api/payments/{id}")
+    fun payment(
+        @Path("id") id: Int,
+        @Header("Authorization") authorization: String
+    ): Call<PaymentResponse>
+
+    @FormUrlEncoded
+    @POST("api/payments")
+    fun insertPayment(
+        @Field("offer_id") offerId: Int,
+        @Field("payment_method") paymentMethod: String,
+        @Field("bid_price") bidPrice: String,
+        @Field("admin_fees") adminFees: Int,
+        @Field("total") total: Int,
+        @Header("Authorization") authorization: String
+    ): Call<InsertPaymentResponse>
+    @Multipart
+    @POST("api/biodata")
+    fun insertBiodata(
+        @Part("nik") nik: RequestBody,
+        @Part("fullname") fullName: RequestBody,
+        @Part("birthday") birthday: RequestBody,
+        @Part("telephone") telephone: RequestBody,
+        @Part("province") province: RequestBody,
+        @Part("city") city: RequestBody,
+        @Part("subdistrict") subDistrict: RequestBody,
+        @Part("village") village: RequestBody,
+        @Part("address") address: RequestBody,
+        @Part("latitude") lat: RequestBody,
+        @Part("longitude") lon: RequestBody,
+        @Header("Authorization") authorization: String
+    ): Call<BiodataResponse>
+
+    @PUT("api/offers/finished/{id}")
+    fun putOfferFinished(
+        @Path("id") id: Int,
+        @Header("Authorization") authorization: String
+    ): Call<OfferFinishedResponse>
 }

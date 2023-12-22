@@ -29,6 +29,7 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import corp.jasane.provider.R
+import corp.jasane.provider.modules.biodata.ui.BiodataActivity
 import corp.jasane.provider.modules.home.ui.ui.addJob.AddJobFragment
 import java.io.IOException
 import java.util.Locale

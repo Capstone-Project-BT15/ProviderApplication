@@ -47,12 +47,11 @@ class RegisterActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.signupButton.setOnClickListener {
             showLoading()
-            val fullName = binding.nameEditText.text.toString()
             val telephone = binding.phoneEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
             val passwordConfirmation = binding.confirmPasswordEditText.text.toString()
-            viewModel.register(fullName, telephone, email, password, passwordConfirmation)
+            viewModel.register(telephone, email, password, passwordConfirmation)
                 .enqueue(object : Callback<RegisterResponse> {
                     override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                         if (response.isSuccessful) {
@@ -64,7 +63,7 @@ class RegisterActivity : AppCompatActivity() {
                                 viewModel.saveSession(user)
                                 AlertDialog.Builder(this@RegisterActivity).apply {
                                     setTitle(R.string.yeah)
-                                    setMessage(R.string.berhasil_login)
+                                    setMessage(R.string.berhasil_register)
                                     val intent = Intent(context, VerificationFirstActivity::class.java)
                                     intent.flags =
                                         Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
@@ -90,7 +89,7 @@ class RegisterActivity : AppCompatActivity() {
                                 Toast.makeText(this@RegisterActivity, R.string.gagal_login, Toast.LENGTH_SHORT).show()
                             }
                         }
-                        Log.d("registerViewModel","${viewModel.register(email, fullName, telephone, password, passwordConfirmation)}")
+                        Log.d("registerViewModel","${viewModel.register(email, telephone, password, passwordConfirmation)}")
                     }
 
                     override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {

@@ -43,6 +43,68 @@
             tools:ignore="RtlSymmetry" />
 
         <TextView
+            android:id="@+id/title_nik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_nik"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/full_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/nik"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_6pxh"
+            android:text="@string/title_nik"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10pxh"
+            android:background="@drawable/rectangle_bg_gray_100"
+            android:paddingStart="@dimen/_18pxh"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_nik"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/title_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_8pxh"
+            android:text="@string/title_date_birth"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nik" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_60pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            android:layout_marginTop="@dimen/_6pxh"
+            android:hint="@string/date"
+            android:onClick="showDatePicker"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_10pxh"
+            android:textColor="@color/black"
+            android:background="@drawable/text_bg"
+            android:paddingStart="@dimen/_18pxh"
+            app:endIconDrawable="@drawable/ic_baseline_lock_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_date"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
             android:id="@+id/title_no_handphone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +114,7 @@
             android:layout_marginTop="@dimen/_16pxh"
             android:layout_marginStart="@dimen/_32pxh"
             android:layout_marginEnd="@dimen/_32pxh"
-            app:layout_constraintTop_toBottomOf="@+id/full_name"
+            app:layout_constraintTop_toBottomOf="@+id/date"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -151,6 +213,42 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
+            android:id="@+id/title_kecamatan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title_kecamatan"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_16pxh"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintTop_toBottomOf="@+id/city_input_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kecamatan_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_32pxh"
+            android:layout_marginEnd="@dimen/_32pxh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_kecamatan">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/kecamatan_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:hint="@string/masukkan_kecamatan"
+                android:ems="10"
+                android:layout_gravity="start"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
             android:id="@+id/title_kelurahan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -160,7 +258,7 @@
             android:layout_marginTop="@dimen/_16pxh"
             android:layout_marginStart="@dimen/_32pxh"
             android:layout_marginEnd="@dimen/_32pxh"
-            app:layout_constraintTop_toBottomOf="@+id/city_input_layout"
+            app:layout_constraintTop_toBottomOf="@+id/kecamatan_input_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -176,7 +274,7 @@
             app:layout_constraintTop_toBottomOf="@+id/title_kelurahan">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/kelurahan_edit_texr"
+                android:id="@+id/kelurahan_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"

@@ -18,7 +18,6 @@ class LoginActivityViewModel (
         return apiService.login(email, password)
     }
 
-
     fun saveSession(user: UserModel) {
         viewModelScope.launch {
             userRepository.saveSession(user)

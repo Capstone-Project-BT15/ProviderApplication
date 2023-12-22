@@ -9,6 +9,7 @@ import corp.jasane.provider.R
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
 import corp.jasane.provider.databinding.ActivityHomeBinding
 import corp.jasane.provider.modules.home.ui.ui.addJob.AddJobFragment
@@ -16,10 +17,13 @@ import corp.jasane.provider.modules.home.ui.ui.home.HomeFragment
 import corp.jasane.provider.modules.home.ui.ui.job.JobFragment
 import corp.jasane.provider.modules.home.ui.ui.offers.ui.OffersFragment
 import corp.jasane.provider.modules.home.ui.ui.profile.ProfileFragment
+import androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var viewPager: ViewPager
+    private lateinit var bottomNavigationView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,13 @@ class HomeActivity : AppCompatActivity() {
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
 //        navView.setupWithNavController(navController)
+
+        val homeFragment = HomeFragment()
+        val profileFragment = ProfileFragment()
+        val offersFragment = OffersFragment()
+        val jobFragment = JobFragment()
+        val addJobFragment = AddJobFragment()
+
         val inflater = layoutInflater
         val dialogView = inflater.inflate(R.layout.on_progress, null)
 
@@ -54,26 +65,33 @@ class HomeActivity : AppCompatActivity() {
 
         buttonOnProgress.setOnClickListener {
             alertDialog.dismiss()
+            setCurrentFragment(jobFragment)
         }
 
-        val homeFragment = HomeFragment()
-        val profileFragment = ProfileFragment()
-        val offersFragment = OffersFragment()
-        val jobFragment = JobFragment()
-        val addJobFragment = AddJobFragment()
+//        val pagerAdapter = HomeActivityViewPagerAdapter(
+//            supportFragmentManager,
+//            listOf(homeFragment, addJobFragment, offersFragment, jobFragment, profileFragment)
+//        )
+//        binding.viewPager.adapter = pagerAdapter
+
+//        val homeFragment = HomeFragment()
+//        val profileFragment = ProfileFragment()
+//        val offersFragment = OffersFragment()
+//        val jobFragment = JobFragment()
+//        val addJobFragment = AddJobFragment()
 
         setCurrentFragment(homeFragment)
 
-        val bottomNavigation: BottomNavigationView = findViewById(R.id.nav_view)
+        val bottomNavigation: BottomNavigationView = binding.navView
         bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_home -> setCurrentFragment(homeFragment)
                 R.id.navigation_add_job -> setCurrentFragment(addJobFragment)
-                R.id.navigation_offers -> alertDialog.show()
+                R.id.navigation_offers -> setCurrentFragment(offersFragment)
                 R.id.navigation_job -> alertDialog.show()
                 R.id.navigation_profile -> setCurrentFragment(profileFragment)
             }
-            true //returns true value
+            true
         }
 
         setupView()
@@ -84,15 +102,20 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setCurrentFragment(fragment: Fragment) {
-        supportFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        if (!supportFragmentManager.isStateSaved) {
+            supportFragmentManager.popBackStackImmediate(
+                null,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE
+            )
 //        val navHostFragment =
 //            supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_home) as NavHostFragment
 //        val navController = navHostFragment.navController
 
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.nav_host_fragment_activity_home, fragment)
-//            addToBackStack(null)
-            commitNow()
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.container, fragment)
+                addToBackStack(null)
+                commitAllowingStateLoss()
+            }
         }
     }
 }

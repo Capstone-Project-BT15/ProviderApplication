@@ -8,9 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import corp.jasane.provider.R
 import corp.jasane.provider.databinding.FragmentHomeBinding
 import corp.jasane.provider.modules.ViewModelFactory
+import corp.jasane.provider.modules.home.ui.HomeActivity
+import corp.jasane.provider.modules.home.ui.ui.offers.ui.OffersStatusOfferFragment
 import corp.jasane.provider.modules.login.ui.LoginActivity
 import corp.jasane.provider.modules.verificationBiodata.verificationFirst.ui.VerificationFirstActivity
 import corp.jasane.provider.modules.verificationBiodata.verificationTwo.VerificationTwoActivity
@@ -24,6 +27,7 @@ class HomeFragment : Fragment() {
         ViewModelFactory.getInstance(requireContext())
     }
 
+    private lateinit var adapter: HomeFragmentAdapter
     private lateinit var progressDialog: Dialog
 
     override fun onCreateView(
@@ -38,12 +42,24 @@ class HomeFragment : Fragment() {
         progressDialog.setCancelable(false)
         progressDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+        showLoading()
+//        val spanCount = 2
+//        val layoutManager = StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL)
+//        binding.recyclerListWorker.layoutManager = layoutManager
+
+        adapter = HomeFragmentAdapter()
+        binding.recyclerListWorker.adapter = adapter
+
         viewModel.getSession().observe(viewLifecycleOwner) { user ->
             if (!user.isLogin) {
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
                 requireActivity().
                 finish()
             } else {
+                viewModel.workDetails.observe(viewLifecycleOwner) { workDetails ->
+                    adapter.setList(ArrayList(workDetails))
+                    binding.recyclerListWorker.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                }
                 hideLoading()
             }
         }

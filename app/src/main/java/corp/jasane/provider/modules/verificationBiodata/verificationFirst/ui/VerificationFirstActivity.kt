@@ -18,7 +18,7 @@ class VerificationFirstActivity : AppCompatActivity() {
         supportActionBar
 
         binding.lottieViewCheck.setAnimation(R.raw.ic_check)
-        binding.buttonSave.setOnClickListener {
+        binding.buttonContinue.setOnClickListener {
             val intent = Intent(this, VerificationTwoActivity::class.java)
             intent.flags =
                 Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
